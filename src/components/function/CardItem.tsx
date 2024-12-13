@@ -1,10 +1,9 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import {IProduct} from "@components/Types/Product";
-
+import { IProduct } from "@components/Types/Product";
 
 function CardItem() {
-    const [item, setItem] = useState<IProduct[]>();
+    const [item, setItem] = useState<IProduct[]>([]);
     useEffect(() => {
         if (Cookies.get("item")) {
             const data = Cookies.get("item");
@@ -17,16 +16,22 @@ function CardItem() {
         setItem((prevState) => {
             console.log('Previous state:', prevState)
             if (prevState != null) {
+ Cookies.set("item", JSON.stringify(prevState), { expires: 7 });
                 return [...prevState, product];
-            }
+            } 
+     
+   
             return prevState;
         });
     };
-    const removeProduct = (id:number) => {
+    const removeProduct = (id: number) => {
         setItem((prevState) => {
-            if (prevState != null) {
-                return prevState.filter((product) => product.product_id !== id);
+            if (prevState) {
+                const updatedItems = prevState.filter((product) => product.product_id !== id);
+                Cookies.set("item", JSON.stringify(updatedItems), { expires: 7 });
+                return updatedItems;
             }
+            return prevState;
         });
     };
     const deleteProduct = () => {
@@ -35,6 +40,6 @@ function CardItem() {
     const getItem = () => {
         return item;
     }
-    return {setItemProduct, getItem,removeProduct,deleteProduct};
+    return {setItemProduct, getItem, removeProduct, deleteProduct };
 }
 export default CardItem;

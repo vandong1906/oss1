@@ -101,25 +101,16 @@ function NavBar() {
                         >
                             {
                                 authContextValue.login ? <>
-                                        <MenuItem>
-                                            <button
-                                                className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
-                                                <TrashIcon className="size-4 fill-white/30"/>
-                                                Profile
-                                                <kbd className="ml-auto font-sans text-xs text-white/50 ">
-
-                                                </kbd>
-                                            </button>
-                                        </MenuItem>
+                                        
                                         <MenuItem>
                                             <Link to='/ManagingProduct'
                                                   className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10'>
                                                 <TrashIcon className="size-4 fill-white/30"/>AddProduct</Link>
                                         </MenuItem>
                                         <MenuItem>
-                                            <Link to='/UserProduct'
+                                            <Link to='/SiderBarMenu'
                                                   className='group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10'>
-                                                <TrashIcon className="size-4 fill-white/30"/>MangingProduct</Link>
+                                                <TrashIcon className="size-4 fill-white/30"/>SiderBarMenu</Link>
                                         </MenuItem>
                                         <MenuItem>
                                             <Link to='/DashBoard'
