@@ -6,12 +6,22 @@ import { IAuthContext, useAuthentication} from "@components/ContextGlobal/Authuc
 import ManagingProduct from "@components/table/ManagingProduct";
 import UserProduct from "@components/table/UserProduct";
 import UserProfile from "@components/SettingUser/UserProfile";
+import SiderBarMenu from "@components/table/SiderBarMenu";
+import Verify from "@components/Form/Veryfi";
 
 function Router() {
     const authContextValue: IAuthContext = useAuthentication();
     const publicRouter = [
         {
+            component: <SiderBarMenu/>, path: "/SiderBarMenu"
+        },
+        {
             component: <Home/>, path: "/"
+          
+        },
+        {
+            component: <Verify/>, path: "/register/verify"
+           
         },
         {
             component: <Product/>, path: "/product"
