@@ -18,6 +18,7 @@ function CardItem() {
           if (productIndex !== -1) {
             const updatedState = [...prevState];
             updatedState[productIndex].number += 1; 
+            console.log(updatedState);
             return updatedState; 
           }
           console.log(product);
