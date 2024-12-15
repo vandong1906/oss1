@@ -35,6 +35,7 @@ function ManagingProduct() {
         }
         fetachdata()
     }, [])
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData((prevState) => ({
@@ -50,12 +51,13 @@ function ManagingProduct() {
         }));
     };
     const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const selectedBrand = parseInt(e.target.value, 10); 
+        const selectedBrand = parseInt(e.target.value, 10); // Ensure it's a number
         setFormData((prevState) => ({
             ...prevState,
             Brand_id: selectedBrand,
         }));
     };
+
     function handlerProduct(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const form = new FormData();
@@ -64,25 +66,23 @@ function ManagingProduct() {
         form.append("description", formdata?.description);
         form.append("Brand_id", formdata?.Brand_id.toString());
         form.append("number", formdata?.number.toString());
-        if (file && file?.type != 'image/jpeg') {
+        if (file) {
             form.append("file", file);
-            const handler = async () => {
-                const response = await CallProduct().createProduct(form);
-                if (response.status == 200) {
-                    setNotification(true);
-                }
-            }
-            handler();
         }
-        setAlert({ message: 'image is not valid!',
-            color: 'red',
-            detail: 'please input a image agin',})
-        setNotification(true);  
+        const handler = async () => {
+            const response = await CallProduct().createProduct(form);
+            if (response.status == 200) {
+                setNotification(true);
+            }
+        }
+        handler();
+
     }
     const handleAlertClose = () => {
         console.log("Alert has been closed!");
         setNotification(false); // Cập nhật lại trạng thái sau khi alert tắt
       };    
+  
     return <>
         <div className="flex mt-16">
             <form className="w-1/3 mx-auto" onSubmit={(e) => handlerProduct(e)}>

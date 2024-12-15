@@ -68,7 +68,7 @@ function NavBar() {
                     <Menu>
                         <MenuButton
                             className="inline-flex items-center gap-2 rounded-md  py-1.5 px-3 text-sm/6 font-semibold focus:outline-none  data-[focus]:outline-1 data-[focus]:outline-white relative">
-                            Shopping Cart<ShoppingCartIcon className="size-5"/> <span
+                            Shopping Cart<ShoppingCartIcon className="size-5" /> <span
                             className='top-0 absolute right-0'></span>
                         </MenuButton>
                         <MenuItems
@@ -126,6 +126,16 @@ function NavBar() {
 
                                                 </kbd>
                                             </button>
+                                        </MenuItem>
+                                        <MenuItem>
+                                            <Link to="/oderItems"
+                                                className="group flex w-full items-center gap-2 rounded-lg py-1.5 px-3 data-[focus]:bg-white/10">
+                                                <TrashIcon className="size-4 fill-white/30"/>
+                                                shopping cart
+                                                <kbd className="ml-auto font-sans text-xs text-white/50 ">
+
+                                                </kbd>
+                                            </Link>
                                         </MenuItem>
                                         <MenuItem>
                                             <button
@@ -230,4 +240,4 @@ function NavBar() {
 
 }
 
-export default NavBar;
+export default NavBar;  
