@@ -22,7 +22,12 @@ function CallProduct(){
         return response.data;
 
     }
-    return {createProduct,getProduct};
+    const getLimitProduct = async () => {
+        const response = await axiosInstance.get(import.meta.env.VITE_API_URL+"/v1/product/limit");
+        return response.data;
+
+    }
+    return {createProduct,getProduct,getLimitProduct};
 }
 
 export default CallProduct;
