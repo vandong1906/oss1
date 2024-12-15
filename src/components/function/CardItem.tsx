@@ -15,18 +15,6 @@ function CardItem() {
     }, [])
     const setItemProduct = (product: IProduct) => {
         setItem((prevState) => {
-<<<<<<< HEAD
-          const productIndex = prevState.findIndex((item) => item.product_id === product.product_id);
-          if (productIndex !== -1) {
-            const updatedState = [...prevState];
-            updatedState[productIndex].number += 1; 
-            console.log(updatedState);
-            return updatedState; 
-          }
-          console.log(product);
-          Cookies.set("item",JSON.stringify([...prevState, { ...product, number: 1 }]),{expires:7});
-          return [...prevState, { ...product, number: 1 }];
-=======
             if(prevState){
                 const productIndex = prevState.findIndex((item) => item.product_id === product.product_id);
                 if (productIndex !== -1 ) {
@@ -41,7 +29,6 @@ function CardItem() {
             }
             Cookies.set("item", JSON.stringify([product]), { expires: 7 });
             return [product];
->>>>>>> dat
         });
     };
     const removeProduct = (id: number) => {
