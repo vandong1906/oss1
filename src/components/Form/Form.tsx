@@ -25,11 +25,14 @@ const Form = () => {
             console.log(authContextValue.login);
         }
     }
+<<<<<<< HEAD
     const validateEmail = (email:string) => {
         return email.match(
           /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         );
       };
+=======
+>>>>>>> dong
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setRegister((prevState) => ({
@@ -41,6 +44,7 @@ const Form = () => {
 
         try {
             console.log("User data:", register);
+<<<<<<< HEAD
             if(validateEmail(register?.mail)){
                 console.log(import.meta.env.VITE_API_URL + "/v1/user/register");
                 const status = await CallUser().create(register);
@@ -51,6 +55,14 @@ const Form = () => {
             }
             console.log("loi email");
           
+=======
+            console.log(import.meta.env.VITE_API_URL + "/v1/user/register");
+            const status = await CallUser().create(register);
+            console.log("Response status:", status.status);
+            if (status.status == 200) {
+                navigate('/register/verify');
+            }
+>>>>>>> dong
         } catch (error) {
             console.error("Error:", error);
         }

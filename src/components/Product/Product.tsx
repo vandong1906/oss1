@@ -13,7 +13,11 @@ const Product = () => {
     const [data, setData] = useState<IProduct>();
     const [loading, SetLoading] = useState(false);
     console.log(param.get('product'));
+<<<<<<< HEAD
     const {setItemProduct}=CardItem();
+=======
+    const {setItemProduct}= CardItem();
+>>>>>>> dong
     React.useEffect(() => {
         const handler = async () => {
             try {
@@ -74,12 +78,21 @@ const Product = () => {
                         <p className="text-sm">Hotline HCM : 0786665444 - 561 Nguyễn Đình Chiểu Q.3</p>
                         <p className="text-sm text-gray-500">Tổng đài hoạt động từ 10h00 - 22h00 mỗi ngày</p>
                     </div>
+<<<<<<< HEAD
                     <button className="w-full bg-pink-200 text-white py-3 rounded mb-4 hover:bg-pink-500"
                     onClick={()=>{
                         if(data!=null){
                             setItemProduct(data);
                         }
                     }} >THÊM VÀO GIỎ HÀNG</button>
+=======
+                    <button className="w-full bg-pink-200 text-white py-3 rounded mb-4 hover:bg-pink-500" 
+                    onClick={()=>{
+                        if(data!=null)
+                            setItemProduct(data);
+                    }}
+                    >THÊM VÀO GIỎ HÀNG</button>
+>>>>>>> dong
                     <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
                         <button className="w-full md:w-1/3 bg-red-500 text-white py-3 rounded">MUA NGAY<br />Giao Tận Nơi Hoặc Nhận Tại Cửa Hàng</button>
                         <button className="w-full md:w-1/3 bg-blue-500 text-white py-3 rounded">TRẢ GÓP QUA THẺ<br />Visa, Master, JCB</button>
