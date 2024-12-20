@@ -17,7 +17,7 @@ function ManagingProduct() {
     const [formdata, setFormData] = React.useState<IAddProduct>(
         {
             Product_name: "",
-            number: 0,
+            number: 1,
             Brand_id: 1,
             description: "",
         }
@@ -66,16 +66,20 @@ function ManagingProduct() {
         form.append("description", formdata?.description);
         form.append("Brand_id", formdata?.Brand_id.toString());
         form.append("number", formdata?.number.toString());
-        if (file) {
+        if (file && file?.type != 'image/jpeg') {
             form.append("file", file);
-        }
-        const handler = async () => {
-            const response = await CallProduct().createProduct(form);
-            if (response.status == 200) {
-                setNotification(true);
+            const handler = async () => {
+                const response = await CallProduct().createProduct(form);
+                if (response.status == 200) {
+                    setNotification(true);
+                }
             }
+            handler();
         }
-        handler();
+        setAlert({ message: 'image is not valid!',
+            color: 'red',
+            detail: 'please input a image agin',})
+        setNotification(true);  
 
     }
     const handleAlertClose = () => {
@@ -120,7 +124,8 @@ function ManagingProduct() {
                 <input type="number" id="number-input" aria-describedby="helper-text-explanation"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="90210" required value={formdata?.number} name="number"
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange} 
+                    min={1}/>
                 <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
                     an option</label>
                 <select id="countries"
