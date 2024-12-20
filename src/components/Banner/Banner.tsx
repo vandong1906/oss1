@@ -7,8 +7,6 @@ import myImage from "../../assets/Giay-Nau.webp";
 import myImage1 from "../../assets/image-54-2048x711-2.webp";
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 const Banner = () => {
-    const [currentIndex, setCurrentIndex] = React.useState(0);
-
     const images = [
        myImage,
        myImage1,    
@@ -19,12 +17,12 @@ const Banner = () => {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500, // Tự động chuyển sau 2.5 giây
-          disableOnInteraction: false, // Cho phép tiếp tục tự động sau khi tương tác
+          delay: 2500, 
+          disableOnInteraction: false,
         }}
        
-        navigation={true} // Thêm điều hướng next/prev
-        modules={[Autoplay, Navigation]} // Import các module cần thiết
+        navigation={true} 
+        modules={[Autoplay, Navigation]} 
         className="mySwiper"
       >
         {images.map((image, index) => (

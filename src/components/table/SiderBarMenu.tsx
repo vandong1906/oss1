@@ -11,7 +11,6 @@ function SiderBarMenu() {
   };
   const toggleClick = (index: number) => {
     setIsClick(isClick === index ? 0 : index);
-
   }
   let content;
   switch (isClick) {
