@@ -8,6 +8,7 @@ import UserProduct from "@components/table/UserProduct";
 import UserProfile from "@components/SettingUser/UserProfile";
 import SiderBarMenu from "@components/table/SiderBarMenu";
 import Verify from "@components/Form/Veryfi";
+import OrderItem from "@components/table/OrderItem";
 
 function Router() {
     const authContextValue: IAuthContext = useAuthentication();
@@ -37,6 +38,9 @@ function Router() {
         },
         {
             component: <UserProfile/>, path: "/UserProfile"
+        },
+        {
+            component: <OrderItem/>, path: "/ShoppingCart"
         }
     ]
     return (
