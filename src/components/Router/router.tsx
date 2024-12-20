@@ -40,7 +40,7 @@ function Router() {
             component: <UserProfile/>, path: "/UserProfile"
         },
         {
-            component: <OrderItem/>, path: "/ShoppingCart"
+            component: <OrderItem/>, path: "/oderItems"
         }
     ]
     return (
