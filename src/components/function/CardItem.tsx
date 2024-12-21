@@ -35,7 +35,7 @@ function CardItem() {
         setItem((prevState) => {
             if (prevState) {
                 const updatedItems = prevState.filter((product) => product.product_id !== id);
-               // Cookies.set("item", JSON.stringify(updatedItems), { expires: 7 });
+                Cookies.set("item", JSON.stringify(updatedItems), { expires: 7 });
                 return updatedItems;
             }
             return prevState;
